@@ -89,7 +89,7 @@ class Automator:
             return None
 
     def send_keys_to_xpath_element(self, xpathOfElement, timeOutLimit, keyStrokes):
-        element = self.get_xpath_element(xpathOfElement,10)
+        element = self.get_xpath_element(xpathOfElement,timeOutLimit)
         if element is not None:
             element.send_keys(keyStrokes)
             time.sleep(self.__delay_after_action)
@@ -98,7 +98,7 @@ class Automator:
             self.__raise_and_log_exception("Error....failed to identify element of xpath " + xpathOfElement)
         
     def send_click_to_xpath_element(self, xpathOfElement, timeOutLimit):
-        element = self.get_xpath_element(xpathOfElement,10)
+        element = self.get_xpath_element(xpathOfElement,timeOutLimit)
         if element is not None:
             element.click()
             time.sleep(self.__delay_after_action)
@@ -107,7 +107,7 @@ class Automator:
             self.__raise_and_log_exception("Error....failed to identify element of xpath " + xpathOfElement)
         
     def get_text_of_xpath_element(self, xpathOfElement, timeOutLimit):
-        element = self.get_xpath_element(xpathOfElement,10)
+        element = self.get_xpath_element(xpathOfElement,timeOutLimit)
         if element is not None:
             time.sleep(self.__delay_after_action)
             return element.text
